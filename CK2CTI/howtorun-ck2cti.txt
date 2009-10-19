@@ -1,0 +1,7 @@
+WHAT TO WRITE:
+
+c:\Documents and Settings\ras81\My Documents\Thermochemistry\SILICA-CHEMKIN-30APR2008\Mechanisms>ck2cti.exe -i chem.inp -v -t therm.dat
+
+write the above in the command prompt.
+
+
