@@ -31,7 +31,7 @@ import MySQLdb
 
 import openbabel, pybel
 from optparse import OptionParser
-
+import private
 
 def readlogfile(filename):
 	filedata = fileinput.input(filename)
@@ -92,16 +92,16 @@ parser.add_option("-w", "--upload",
 					action="store_true", dest="mysql", default=False,
 					help="upload thermo data to MySQL database")
 parser.add_option("-n", "--host",
-					action="store", dest="mysql_host", metavar="host", default="127.0.0.1",
+					action="store", dest="mysql_host", metavar="host", default=private.defaulthost,
 					help="specify alternative MySQL connection host IP address")
 parser.add_option("-u", "--user",
-					action="store", dest="mysql_user", metavar="user", default="prime",
+					action="store", dest="mysql_user", metavar="user", default=private.defaultuser,
 					help="specify alternative MySQL connection user")
 parser.add_option("-p", "--password",
-					action="store", dest="mysql_passwd", metavar="passwd", default="m4sterpl4n",
+					action="store", dest="mysql_passwd", metavar="passwd", default=private.defaultpasswd,
 					help="specify alternative MySQL connection password")
 parser.add_option("-d", "--database",
-					action="store", dest="mysql_db", metavar="database", default="prime",
+					action="store", dest="mysql_db", metavar="database", default=private.defaultdb,
 					help="specify alternative MySQL database")
 parser.add_option("-s", "--mysql-version",
 					action="store_true", dest="mysql_sv", default=False,
