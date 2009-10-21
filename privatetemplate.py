@@ -6,7 +6,7 @@
 
 
 defaulthost = "writehosthere"
-defaultuser = "writeuserher"
+defaultuser = "writeuserhere"
 defaultpasswd = "writepasswordhere"
 defaultdb = "writedbhere"
 
