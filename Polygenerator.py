@@ -29,6 +29,8 @@
 # 20 JULY 2009 - ras81 - added database names as user variables to simplify changing them
 # - ras81 20 JULY 2009
 
+# 21 OCT 2009 - took sensitiv data out and put it in separate file that isn't made public - ras81
+
 #############################################################################
 ##################################Input Section##############################
 mmmyy = 'JUN08'                              
@@ -59,13 +61,13 @@ from scipy import *
 from scipy.optimize import *
 import openbabel, pybel
 from numpy import *
-
+import private  # Database info
 
 #######################OPEN LINK TO SQL#####################################
-conn = MySQLdb.connect (host = "127.0.0.1",
-                           user = "prime",
-                           passwd = "m4sterpl4n",
-                           db = "prime");
+conn = MySQLdb.connect (host = private.defaulthost,
+                        user = private.defaultuser,
+                        passwd = private.defaultpasswd,
+                        db = private.defaultdb);
 cursor = conn.cursor ()
 #Get the list of species in all formats from chemkinnames on sql
 sql1="select Name, ID, canname, project from %s" %(thermonamedb)  

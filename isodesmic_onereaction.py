@@ -22,6 +22,7 @@ import re
 import glob
 import os
 import MySQLdb;
+import private  # Database info
 ###########################################################################################
 # MySQL tables specification
 
@@ -45,10 +46,10 @@ usesql = 1
 ###########################################################################################
 
 if usesql:    
-    conn = MySQLdb.connect (host = "127.0.0.1",
-                           user = "prime",
-                           passwd = "m4sterpl4n",
-                           db = "prime");
+    conn = MySQLdb.connect (host = private.defaulthost,
+                           user = private.defaultuser,
+                           passwd = private.defaultpasswd,
+                           db = private.defaultdb);
     cursor = conn.cursor ()
 
 listoffiles=glob.glob(known+'*.mol')

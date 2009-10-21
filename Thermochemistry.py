@@ -24,6 +24,8 @@
 
 # 26 MARCH 2009 - fixed bug with multiplicity - now giving correct entropy
 
+# 21 OCT 2009 - took sensitiv data out and put it in separate file that isn't made public - ras81
+
 ##########################INPUTS###################################################
 Ireduced = [0]     #0 if no internal rotors, [1,2,3] if 3 of them.
 Tmax = 4000.0
@@ -49,6 +51,7 @@ import random
 from pylab import *
 from scipy import *
 from numpy import *
+import private  # Database info
 
 # define constants
 kb = 1.3806503E-23         #Boltzman's constant
@@ -86,10 +89,10 @@ dq_vibBYdToverq_viblist = range(len(Tlist))
 
 
 #######################OPEN LINK TO SQL#####################################
-conn = MySQLdb.connect (host = "127.0.0.1",
-                           user = "prime",
-                           passwd = "m4sterpl4n",
-                           db = "prime");
+conn = MySQLdb.connect (host = private.defaulthost,
+                        user = private.defaultuser,
+                        passwd = private.defaultpasswd,
+                        db = private.defaultdb);
 cursor = conn.cursor ()
 #Get the list of species in all formats from chemkinnames on sql
 sql1="select Name, ID, spin, Ia, Ib, Ic, mass, symmetrynumber from %s where project='%s'" %(thermonameSQL, project)  

@@ -4,10 +4,10 @@ import string;
 from os import system 
 
 
-conn = MySQLdb.connect (host = "127.0.0.1",
-                           user = "prime",
-                           passwd = "m4sterpl4n",
-                           db = "prime");
+conn = MySQLdb.connect (host = private.defaulthost,
+                        user = private.defaultuser,
+                        passwd = private.defaultpasswd,
+                        db = private.defaultdb);
 cursor = conn.cursor ()
 print "Please enter ID to delete"
 id=raw_input(">")

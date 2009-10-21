@@ -17,6 +17,7 @@ from os import system
 
 # Import the library           export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib/
 import openbabel, pybel
+import private  # Database info
 
 def dir_list(dir_name):
     outputList = []
@@ -29,10 +30,10 @@ def dir_list(dir_name):
     return outputList
 
 
-conn = MySQLdb.connect (host = "localhost",
-                           user = "prime",
-                           passwd = "m4sterpl4n",
-                           db = "prime");
+conn = MySQLdb.connect (host = private.defaulthost,
+                        user = private.defaultuser,
+                        passwd = private.defaultpasswd,
+                        db = private.defaultdb);
 cursor = conn.cursor ()
 dirlist=dir_list(".")
 units=raw_input("Units kcal/mol or kJ/mol? >")
